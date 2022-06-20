@@ -19,6 +19,27 @@ jobs:
     - uses: codecrafters-io/instant-pull-request-action@v1
 ```
 
+**Allow triggering other push/pull_request workflows**:
+
+**Note**: If you want pull requests created by this action to trigger an `on: push` or `on: pull_request` workflow then
+you cannot use the default `GITHUB_TOKEN`. See the [documentation here](docs/concepts-guidelines.md#triggering-further-workflow-runs)
+for workarounds.
+
+```yaml
+name: Create PR
+
+on: [push]
+
+jobs:
+  create_pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: codecrafters-io/instant-pull-request-action@v1
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN_FOR_PULL_REQUEST_CREATION }}"
+```
+
 **Ignore Certain Branches**:
 
 ```yaml
@@ -54,6 +75,17 @@ jobs:
       with:
         base-branch: master
 ```
+
+# Action inputs
+
+All inputs are **optional**. If not set, sensible defaults will be used.
+
+| Name             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Default                                                                                                    |
+|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
+| `github-token`   | `GITHUB_TOKEN` (permissions `contents: write` and `pull-requests: write`) or a `repo` scoped [Personal Access Token (PAT)](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token).                                                                                                                                                                                                                                                                              | `GITHUB_TOKEN`                                                                                             |
+| `base-branch`    | Base branch for the Pull Request                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | `main`                                                                                                     |
+| `assignees`      | Comma-separated list of users to add as assignees. Defaults to the user who triggered the Git push.                                                                                                                                                                                                                                                                                                                                                                                                   | `${{ github.actor }}`                                                                                      |
+| `title`          | The title of the pull request.                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | `Changes from <branch_name>`                                                                               |
 
 # Background
 
