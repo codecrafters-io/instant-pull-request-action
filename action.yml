@@ -22,6 +22,10 @@ inputs:
     description: "Github API token"
     required: true
     default: ${{ github.token }}
+  title:
+    description: "The title of the Pull Request"
+    required: true
+    default: "Changes from ${{ github.ref_name }}"
 outputs:
   pull-request-url:
     description: "Pull request URL"

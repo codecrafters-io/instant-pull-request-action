@@ -8,7 +8,8 @@ async function run(): Promise<void> {
       assignees: core.getInput('assignees').split(','),
       baseBranch: core.getInput('base-branch'),
       githubToken: core.getInput('github-token'),
-      headBranch: core.getInput('head-branch')
+      headBranch: core.getInput('head-branch'),
+      title: core.getInput('title')
     }
 
     core.debug(`Inputs: ${inspect(inputs)}`)

@@ -7,6 +7,7 @@ export interface Inputs {
   baseBranch: string
   githubToken: string
   headBranch: string
+  title: string
 }
 
 export async function createPullRequest(
@@ -69,7 +70,8 @@ export async function createPullRequest(
     owner: process.env['GITHUB_REPOSITORY_OWNER'] as string,
     repo: (process.env['GITHUB_REPOSITORY'] as string).split('/')[1],
     head: `${process.env['GITHUB_REPOSITORY_OWNER']}:${inputs.headBranch}`,
-    base: inputs.baseBranch
+    base: inputs.baseBranch,
+    title: inputs.title
   })
 
   return newPullRequest.html_url
