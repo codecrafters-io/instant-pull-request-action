@@ -14,6 +14,10 @@ inputs:
     required: true
     description: "The base branch for the pull request"
     default: main
+  head_branch:
+    required: true
+    description: "The base branch for the pull request"
+    default: "${{ github.ref_name }}"
   github_token:
     description: "Github API token"
     required: true
