@@ -77,7 +77,8 @@ function createPullRequest(inputs) {
             owner: process.env['GITHUB_REPOSITORY_OWNER'],
             repo: process.env['GITHUB_REPOSITORY'].split('/')[1],
             head: `${process.env['GITHUB_REPOSITORY_OWNER']}:${inputs.headBranch}`,
-            base: inputs.baseBranch
+            base: inputs.baseBranch,
+            title: inputs.title
         });
         return newPullRequest.html_url;
     });
@@ -131,7 +132,8 @@ function run() {
                 assignees: core.getInput('assignees').split(','),
                 baseBranch: core.getInput('base-branch'),
                 githubToken: core.getInput('github-token'),
-                headBranch: core.getInput('head-branch')
+                headBranch: core.getInput('head-branch'),
+                title: core.getInput('title')
             };
             core.debug(`Inputs: ${(0, util_1.inspect)(inputs)}`);
             const pullRequestUrl = yield (0, create_pull_request_1.createPullRequest)(inputs);
