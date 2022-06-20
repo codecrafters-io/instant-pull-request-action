@@ -1,6 +1,29 @@
-name: 'Instant Pull Requests'
-description: 'Automatically create Pull Requests when a branch is pushed to'
-author: 'CodeCrafters, Inc.'
+name: "Instant Pull Requests"
+description: "Automatically create Pull Requests when a branch is pushed to"
+author: "CodeCrafters, Inc."
+inputs:
+  assignees:
+    description: "List of assignee usernames (comma-separated) for the Pull Request"
+    required: false
+    default: "${{ github.actor }}"
+  draft:
+    description: Whether to mark the Pull Request as a draft
+    required: false
+    default: "false"
+  base_branch:
+    required: true
+    description: "The base branch for the pull request"
+    default: main
+  github_token:
+    description: "Github API token"
+    required: true
+    default: ${{ github.token }}
+outputs:
+  url:
+    description: "Pull request URL"
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+  using: "node16"
+  main: "dist/index.js"
+branding:
+  color: green
+  icon: git-pull-request
