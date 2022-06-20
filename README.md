@@ -21,9 +21,9 @@ jobs:
 
 **Allow triggering other push/pull_request workflows**:
 
-**Note**: If you want pull requests created by this action to trigger an `on: push` or `on: pull_request` workflow then
-you cannot use the default `GITHUB_TOKEN`. See the [documentation here](docs/concepts-guidelines.md#triggering-further-workflow-runs)
-for workarounds.
+If you want pull requests created by this action to trigger an `on: push` or `on: pull_request` workflow then
+you cannot use the default `GITHUB_TOKEN`. Use a separate 
+[personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) instead: 
 
 ```yaml
 name: Create PR
