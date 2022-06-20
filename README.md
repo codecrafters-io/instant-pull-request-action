@@ -1,15 +1,3 @@
-# Create a JavaScript Action using TypeScript
-
-Use this template to bootstrap the creation of a TypeScript action.:rocket:
-
-This template includes compilation support, tests, a validation workflow, publishing, and versioning guidance.  
-
-If you are new, there's also a simpler introduction.  See the [Hello World JavaScript Action](https://github.com/actions/hello-world-javascript-action)
-
-## Create an action from this template
-
-Click the `Use this Template` and provide the new repo details for your action
-
 ## Code in Main
 
 > First, you'll need to have a reasonably modern version of `node` handy. This won't work with versions older than 9, for instance.
