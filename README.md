@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: codecrafters-io/instant-pull-request-action@v1
+    - uses: codecrafters-io/instant-pull-request-action@main
 ```
 
 **Allow triggering other push/pull_request workflows**:
@@ -48,7 +48,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: codecrafters-io/instant-pull-request-action@v1
+      - uses: codecrafters-io/instant-pull-request-action@main
         with:
           github-token: "${{ secrets.GITHUB_TOKEN_FOR_PULL_REQUEST_CREATION }}"
 ```
@@ -69,7 +69,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: codecrafters-io/instant-pull-request-action@v1
+      - uses: codecrafters-io/instant-pull-request-action@main
 ```
 
 **Use master as the base branch**:
@@ -84,7 +84,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: codecrafters-io/instant-pull-request-action@v1
+    - uses: codecrafters-io/instant-pull-request-action@main
       with:
         base-branch: master
 ```
