@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: codecrafters-io/action-instant-pull-request@v1
+    - uses: codecrafters-io/instant-pull-request-action@v1
 ```
 
 **Ignore Certain Branches**:
@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: codecrafters-io/action-instant-pull-request@v1
+      - uses: codecrafters-io/instant-pull-request-action@v1
 ```
 
 # How it works
