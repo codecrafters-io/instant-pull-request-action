@@ -6,15 +6,20 @@ async function run(): Promise<void> {
   try {
     const inputs: Inputs = {
       assignees: core.getInput('assignees').split(','),
-      baseBranch: core.getInput('base_branch'),
-      githubToken: core.getInput('github_token'),
-      headBranch: core.getInput('head_branch')
+      baseBranch: core.getInput('base-branch'),
+      githubToken: core.getInput('github-token'),
+      headBranch: core.getInput('head-branch')
     }
 
     core.debug(`Inputs: ${inspect(inputs)}`)
 
-    await createPullRequest(inputs)
-  } catch (error) {
+    const pullRequestUrl = await createPullRequest(inputs)
+
+    if (pullRequestUrl) {
+      core.info(`Pull request created: ${pullRequestUrl}`)
+      core.setOutput('pull-request-url', pullRequestUrl)
+    }
+  } catch (error: any) {
     core.setFailed(error.message)
   }
 }

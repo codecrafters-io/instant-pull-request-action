@@ -10,20 +10,20 @@ inputs:
     description: Whether to mark the Pull Request as a draft
     required: false
     default: "false"
-  base_branch:
+  base-branch:
     required: true
     description: "The base branch for the pull request"
     default: main
-  head_branch:
+  head-branch:
     required: true
     description: "The base branch for the pull request"
     default: "${{ github.ref_name }}"
-  github_token:
+  github-token:
     description: "Github API token"
     required: true
     default: ${{ github.token }}
 outputs:
-  url:
+  pull-request-url:
     description: "Pull request URL"
 runs:
   using: "node16"
