@@ -1,6 +1,19 @@
-# Instant PRs
+# Instant Pull Requests
 
 A GitHub action that automatically creates Pull Requests when a branch is pushed to.
+
+# Background
+
+Here's what the typical development process looks like:
+
+1. Create a feature branch
+2. Commit some changes
+3. Push the branch to GitHub
+4. Open a Pull Request
+5. Wait for CI + code reviews
+6. Merge
+
+GitHub's [auto-merge](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request) feature automates step 6, this action automates step 4.
 
 # Usage
 
@@ -86,16 +99,3 @@ All inputs are **optional**. If not set, sensible defaults will be used.
 | `base-branch`    | Base branch for the Pull Request                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | `main`                                                                                                     |
 | `assignees`      | Comma-separated list of users to add as assignees. Defaults to the user who triggered the Git push.                                                                                                                                                                                                                                                                                                                                                                                                   | `${{ github.actor }}`                                                                                      |
 | `title`          | The title of the pull request.                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | `Changes from <branch_name>`                                                                               |
-
-# Background
-
-Here's what the typical development process looks like:
-
-1. Create a feature branch
-2. Commit some changes
-3. Push the branch to GitHub
-4. Open a Pull Request
-5. Wait for CI + code reviews
-6. Merge
-
-GitHub's [auto-merge](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request) feature automates step 6, this action automates step 4.
