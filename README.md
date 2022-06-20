@@ -38,9 +38,22 @@ jobs:
       - uses: codecrafters-io/instant-pull-request-action@v1
 ```
 
-# How it works
+**Use master as the base branch**:
 
-This action listens for `push` events. When a `push` event is detected on a branch, it creates a Pull Request if an open/closed (not merged) Pull Request does not already exist for the branch.
+```yaml
+name: Create PR
+
+on: [push]
+
+jobs:
+  create_pr:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: codecrafters-io/instant-pull-request-action@v1
+      with:
+        base-branch: master
+```
 
 # Background
 
